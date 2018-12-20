@@ -4,14 +4,13 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
-public class OnResultFragment extends Fragment {
+public final class OnResultFragment extends Fragment {
 
     static int ACTIVITY_CODE = 0x11000000;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }

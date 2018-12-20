@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-public class ActivityResult {
+public final class ActivityResult {
 
     private static volatile ActivityResult singleton;
 
@@ -237,6 +237,4 @@ public class ActivityResult {
     public interface OnActivityResultListener {
         void onResult(Intent data);
     }
-
-
 }
