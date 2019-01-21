@@ -224,14 +224,9 @@ public final class ActivityResult {
             fragmentManager.executePendingTransactions();
         }
         if (targetActivity != null) {
-            fragment.startActivityForResult(targetActivity.get());
+            fragment.startActivityForResult(targetActivity.get(),listener);
         }
 
-    }
-
-
-    void activityResult(Intent data) {
-        listener.onResult(data);
     }
 
     public interface OnActivityResultListener {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 public final class OnResultFragment extends Fragment {
 
     static int ACTIVITY_CODE = 0x11000000;
+    private ActivityResult.OnActivityResultListener listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,8 @@ public final class OnResultFragment extends Fragment {
         setRetainInstance(true);
     }
 
-    void startActivityForResult(Class<? extends Activity> activity) {
+    void startActivityForResult(Class<? extends Activity> activity, ActivityResult.OnActivityResultListener listener) {
+        this.listener = listener;
         Intent intent = new Intent(getActivity(), activity);
         intent.putExtras(getArguments());
         startActivityForResult(intent, ACTIVITY_CODE);
@@ -25,7 +27,7 @@ public final class OnResultFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_CODE) {
-            ActivityResult.getInstance(getActivity()).activityResult(data);
+            listener.onResult(data);
         }
 
     }
