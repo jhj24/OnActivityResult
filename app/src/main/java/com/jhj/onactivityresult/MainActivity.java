@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityResult.getInstance(MainActivity.this)
+                ActivityResult.init(MainActivity.this)
                         .targetActivity(TestActivity.class)
                         .putString("String", "这是一个Activity")
                         .onResult(new ActivityResult.OnActivityResultListener() {

@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.lang.reflect.Field;
+
 public final class OnResultFragment extends Fragment {
 
     static int ACTIVITY_CODE = 0x11000000;
@@ -29,6 +31,5 @@ public final class OnResultFragment extends Fragment {
         if (requestCode == ACTIVITY_CODE) {
             listener.onResult(data);
         }
-
     }
 }
