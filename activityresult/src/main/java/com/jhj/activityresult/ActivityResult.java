@@ -203,7 +203,6 @@ public final class ActivityResult {
 
         if (fragment == null) {
             fragment = new OnResultFragment();
-            fragment.setArguments(bundle);
             fragmentManager
                     .beginTransaction()
                     .add(fragment, TAG)
@@ -211,7 +210,7 @@ public final class ActivityResult {
             fragmentManager.executePendingTransactions();
         }
         if (targetActivity != null) {
-            fragment.startActivityForResult(targetActivity, listener);
+            fragment.startActivityForResult(targetActivity, bundle, listener);
         }
 
     }
